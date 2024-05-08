@@ -1,13 +1,13 @@
 import requests
 import pyperclip
-pyperclip.copy('https://brockhoferart.com/projects')
-res = requests.get(pyperclip.paste())
+
+res = requests.get(pyperclip.waitForNewPaste())
 try:
     res.raise_for_status()
-except Exception as exc:
-    print('no pudo ser perro: %s' % (exc))
+except:
+    print('no pudo ser perro')
 
-playFile = open('penex.txt', 'wb')
+playFile = open('mechi.html', 'wb')
 for chunk in res.iter_content(100000):
     playFile.write(chunk)
 
